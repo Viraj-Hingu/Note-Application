@@ -9,7 +9,7 @@ const cors = require("cors");
 Database();
 app.use(express.json());
 app.use(cors());
-app.use(express.static("./public"))
+app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/api/notes", async (req, res) => {
   const { Title, Description } = req.body;
@@ -51,7 +51,7 @@ app.patch("/api/notes/:idx", async (req, res) => {
 
 
 app.get("*name", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "/public/index.html"));
+  res.sendFile(path.join(__dirname, "..", "index.html"));
 });
 
 
