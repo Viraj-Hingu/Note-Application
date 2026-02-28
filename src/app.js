@@ -9,7 +9,7 @@ const cors = require("cors");
 Database();
 app.use(express.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("./public"));
 
 app.post("/api/notes", async (req, res) => {
   const { Title, Description } = req.body;
